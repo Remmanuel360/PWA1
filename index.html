@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frases Motivacionales</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    #frase {
+      font-size: 1.5em;
+      margin: 20px;
+      color: #555;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Frase Motivacional</h1>
+  <div id="frase">Haz clic en el botón para inspirarte.</div>
+  <button onclick="mostrarFrase()">Nueva Frase</button>
+
+  <script>
+    const frases = [
+      "El éxito es la suma de pequeños esfuerzos repetidos cada día.",
+      "Cree en ti y todo será posible.",
+      "No tienes que ser grande para empezar, pero tienes que empezar para ser grande.",
+      "La disciplina tarde o temprano vencerá a la motivación.",
+      "Hoy es un buen día para empezar.",
+      "No cuentes los días, haz que los días cuenten.",
+      "La acción es la clave fundamental para todo éxito.",
+      "Haz algo hoy que tu futuro yo te agradezca."
+    ];
+
+    function mostrarFrase() {
+      const random = Math.floor(Math.random() * frases.length);
+      document.getElementById("frase").textContent = frases[random];
+    }
+  </script>
+</body>
+</html>
