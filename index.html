@@ -6,6 +6,7 @@
   <title>Frases Motivacionales</title>
   <link rel="manifest" href="manifest.json" />
   <style>
+    /* Estilos generales */
     body {
       font-family: Arial, sans-serif;
       background: #f9f9f9;
@@ -17,14 +18,19 @@
       margin: 0;
       text-align: center;
     }
+
     h1 {
       color: #333;
+      margin-bottom: 20px;
     }
+
     #frase {
       font-size: 1.5em;
       margin: 20px;
       color: #555;
+      max-width: 80%; /* Ajusta la frase para que no ocupe todo el ancho */
     }
+
     button {
       padding: 10px 20px;
       font-size: 1em;
@@ -33,9 +39,43 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      margin-top: 20px;
     }
+
     button:hover {
       background: #0056b3;
+    }
+
+    /* Media Queries para pantallas pequeñas */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5em;
+      }
+
+      #frase {
+        font-size: 1.2em;
+        margin: 15px;
+      }
+
+      button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+      }
+    }
+
+    /* Media Queries para pantallas más grandes */
+    @media (min-width: 601px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      #frase {
+        font-size: 1.5em;
+      }
+
+      button {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
@@ -60,14 +100,16 @@
       const random = Math.floor(Math.random() * frases.length);
       document.getElementById("frase").textContent = frases[random];
     }
-    if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').then((registration) => {
-      console.log('Service Worker registrado con éxito:', registration);
-    }).catch((error) => {
-      console.log('Error al registrar el Service Worker:', error);
-    });
-  }
-  </script>
 
+    // Registro del Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').then((registration) => {
+        console.log('Service Worker registrado con éxito:', registration);
+      }).catch((error) => {
+        console.log('Error al registrar el Service Worker:', error);
+      });
+    }
+  </script>
 </body>
 </html>
+
